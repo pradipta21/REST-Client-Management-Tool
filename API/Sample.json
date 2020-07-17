@@ -1,0 +1,25 @@
+{
+	"demo_GET":{
+		"endpoint":"posts/{post_id}",
+		"method":"GET",
+		"header":{
+			"Content-Type": "application/json"
+		},
+		"payload":null,
+		"query_params":null,
+		"SSL_verify": null,
+		"timeout": null
+	},
+	"demo_POST":{
+		"endpoint":"posts",
+		"method":"POST",
+		"header":{
+			"Content-Type": "application/json"
+		},
+		"payload":"create_post.json",
+		"query_params":null,
+		"SSL_verify": false,
+		"timeout": null
+	}
+
+}
