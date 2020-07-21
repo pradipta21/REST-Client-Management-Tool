@@ -14,7 +14,7 @@ This tools can be used for below scenarios -
 
 # Installation
 ## Clone
-- Clone this repo to your local machine using 
+- Clone this repo to your local machine using : SSH: `git@github.com:pradipta21/REST-Client-Management-Tool.git` or HTTPS: `https://github.com/pradipta21/REST-Client-Management-Tool.git`
 ## Setup
 - Open a python terminal
 - Install the requirement.txt file using pip
