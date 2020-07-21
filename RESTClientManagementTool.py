@@ -6,6 +6,8 @@ import sys
 import json
 
 current_abs_path = os.path.dirname(__file__)
+if current_abs_path not in sys.path:
+    sys.path.append(current_abs_path)
 Setup_path = current_abs_path + "/" + "System"
 if(os.path.isdir(Setup_path)):
     if Setup_path not in sys.path:
@@ -56,6 +58,7 @@ def send(domain_name,request_name,url_params=None,query_param=None,header=None,p
             requestManager = RequestManager(current_abs_path,"API",endpoint_map,application_logger)
             request_details = requestManager.get_request_details(request_name)
             request_details = payloadManager.check_payload(request_details)
+            print(request_details)
             if request_details != None:
                 #Fetch payload
                 if(request_details["payload_type"] == "file"):
@@ -71,7 +74,7 @@ def send(domain_name,request_name,url_params=None,query_param=None,header=None,p
                     request_details = requestManager.query_params_assembe(request_details, query_param)
                 request_details = requestManager.request_url_assemble(domain_details,request_details,request_name,url_params)
                 reponse = requestManager.send_request(request_details,auth)
-                if filename != None:
+                if filename != None and reponse.text != None:
                     requestManager.save_result(reponse,filename)
                 return reponse
             else:
@@ -115,6 +118,10 @@ def add_api(name,endpoint,method,header,payload=None,query_params=None,SSL_verif
                 raise RCMT_exception.apiAddArgumentError("query_params must be of type dict")
         api_object = apiManager.add_new_api(name,endpoint,method,header,payload,query_params,SSL_verify,timeout)
         apiManager.add_api_in_file(api_object,name,filename)
+        if filename != None:
+            endpoint_map[name] = filename
+        else:
+            endpoint_map[name] = "Default.json"
     
 def delete_api(api_name):
     """
@@ -181,9 +188,4 @@ def get_payload(api_name):
                 application_logger.info("Payload : " + payload)
             return payload
     else:
-        application_logger.error("No API found with the name " + api_name)
-    
-    
-send("test_connection_2","JSON_POST",{"employee_id":"1"},payload={"text":"Any TEXT"},filename="Result")
-#add_api("Any_connection","/sas/da","GET",{"a":"v"},filename="sample 2.json")
-#print(search_api())       
+        application_logger.error("No API found with the name " + api_name)       
