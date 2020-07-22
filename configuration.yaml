@@ -1,0 +1,13 @@
+domain:
+    sample_environment:
+        host: https://jsonplaceholder.typicode.com
+        port:
+        https: true
+    localhost:
+        host: 127.0.0.1
+        port: 8080
+        https: false
+log:
+    log_level: debug
+    log_console: true
+    log_max_size: 10 #size in MB
