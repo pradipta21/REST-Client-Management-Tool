@@ -37,7 +37,8 @@ python RESTClientManagementTool.py
 - Self-repairing for certain scenarios.
 - Logging available in two different levels for better tracking.
 - Supports execution in multiple environmnents.
-# Configuration
+# Documentation
+## Configuration
 The most important step is to set up configuration file.
 - Open the `configuration.yaml` using any text editior.
 - Add the details of your environment under `domain` property (Refer to the sample given in the `configuration.yaml`).
@@ -54,11 +55,25 @@ The most important step is to set up configuration file.
     - log_max_size: [Number (calculate size in MB)]
 - Once all the configurations are setup, tool will be ready to use. 
 
-# Usage
+## How to Start
 - Create a new python file with any name.
 - import the tool
 ```
 import RESTClientManagementTool as RCMT
 ```
 - The above import will work for any sub-directory inside the parent directory (for other directories outside the parent directory import the tool using its path).
-- Now, use the any supported methods by the tool and execute your script.
+- Add APIs to the Tools. (for details of adding API check below)
+- Add Payload if required. (for details of adding Payload check below)
+- Use the supported method as per your requirements.
+- Execute your script
+## Supported Methods
+- **send** : send method can be used for sending request to the APIs.It will return the response in the form of python response object.Even the response can be saved in JSON format if filename is passed in the method arguments. All the saved responses can be found under `Result` directory.
+  - **Arguments**:
+    - **domain_name**: `[String],[required]` The Domain you have setup in the configuration file (case-sensitive)
+    - **request_name**: `[String],[required]` The name of the API you want to use (case-sensitive). The name must in be present in the API json file.
+    - **url_params**: `[dict],[optional]` If the API url have some paramerters, then value the pass as key/value pairs. key will the name of the variable and value should contains the actual value.
+    - **query_param**: `[dict],[optional]` If the API url supports query string, then this can be used.The value must passs as key/value pair.
+    - **header**: `[dict],[optional]` If you want to add additional header properties apart from the available one in the API json file. The dict object passed will be merged with the header object from API json file.
+    - **payload**: `[dict],[optional]` If you want to add additional payload properties apart from the available one in the Payload json file. The dict object passed will be merged with the payload object from Payload json file.
+    - **auth**: `[auth object],[optional]` If your API need some authentication, then you can pass the authentication object.
+    - **filename**: `[String],[optional]` If you want to save the response returned by the API.The response will be stored as json format with the value passed as filename inside the `Result` directory. 
