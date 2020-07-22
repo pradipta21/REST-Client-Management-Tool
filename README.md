@@ -128,6 +128,6 @@ Adding payload can be quite simple.Create a json file which will contain the ent
 
 **Note** : For small payload, it can be directly added to the API json object while adding API to it.
 ## Logging
-In this tool, logs are divieded into two layer for better tracing of the application.
+In this tool, logs are divieded into two layer for better traking of the application.
 - System log : All logs related to system processing and configuring can be found here.
 - Application log : All logs related to API execution can be found here.
