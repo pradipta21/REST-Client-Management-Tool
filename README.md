@@ -104,3 +104,30 @@ import RESTClientManagementTool as RCMT
   - **get_payload** : get_payload methods can be used to retrieve the payload of the API which requires the use of payload.
     - **Arguments**:
       - **api_name**: `[String],[required]` The payload of the given API will be returned. 
+## How to add API
+All the API must be added as json object in a json file.APIs can be added in two ways
+- Directly adding API in the json file : Create any json file or open any existing json file from the `API directory`.Add a json object according to the structure given below:
+```
+[Name of the API]: { 
+     "endpoint": "",
+     "method": "",
+     "header": {
+        "Content-Type": "application/json" 
+     },
+     "payload": "",
+     "query_params": null,
+     "SSL_verify": null,
+     "timeout": null
+  }
+```
+
+Fill the information properly and save the file.Using the name of the API, this object can be used.
+- Adding the API programatically : To add the API from the tool itself, `add_api` method can be used (Refer to supported methods to know how to use add method).
+## How to add payload
+Adding payload can be quite simple.Create a json file which will contain the entire payload and drop it in the `Payload Directory`.Then update the name of the payload file in the API json object.
+
+**Note** : For small payload, it can be directly added to the API json object while adding API to it.
+## Logging
+In this tool, logs are divieded into two layer for better tracing of the application.
+- System log : All logs related to system processing and configuring can be found here.
+- Application log : All logs related to API execution can be found here.
