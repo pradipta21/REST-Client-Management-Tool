@@ -88,15 +88,19 @@ import RESTClientManagementTool as RCMT
       - **SSL_verify**: `[String/boolean][optional]` If have have SSL certificate enter the path of the certificate else set it to false.
       - **timeout**: `[String],[optional]` Request timeout value.
       - **filename**: `[String],[optional]` Filename in which API should be added.If no filename is specififed then API will be added to `Default.json`
+      
+      If API gets added successfully it will return `True` else `False`
   - **delete_api** : delete_api method can be used delete any API from any json file.
     - **Arguments**:
       - **api_name**: `[String],[required]` Name of the API that will be deleted.
+      
+      If API gets deleted successfully return `True` else `False`. 
   - **search_api**: search_api method can be used for searching any API from the entire `API directory`
     - **Arguments**:
       - **api_name**: `[String],[optional]` Name of the API that will be searched (Only found API will be returned)
       - **filename**: `[String],[optional]` If filename is given then all the API in that file will be returned.
       
-      If both the arguments are set to null, then all the avialable APIs will be returned.The return type will be of json object
+      If both the arguments are set to null, then all the avialable APIs will be returned.The return type will be of json object.If no API are found it will return `None`.
   - **get_payload** : get_payload methods can be used to retrieve the payload of the API which requires the use of payload.
     - **Arguments**:
       - **api_name**: `[String],[required]` The payload of the given API will be returned. 
