@@ -89,12 +89,12 @@ import RESTClientManagementTool as RCMT
       - **timeout**: `[String],[optional]` Request timeout value.
       - **filename**: `[String],[optional]` Filename in which API should be added.If no filename is specififed then API will be added to `Default.json`
       
-      If API gets added successfully it will return `True` else `False`
+      If API gets added successfully, it will return `True` else `False`
   - **delete_api** : delete_api method can be used delete any API from any json file.
     - **Arguments**:
       - **api_name**: `[String],[required]` Name of the API that will be deleted.
       
-      If API gets deleted successfully return `True` else `False`. 
+      If API gets deleted successfully, it will return `True` else `False`. 
   - **search_api**: search_api method can be used for searching any API from the entire `API directory`
     - **Arguments**:
       - **api_name**: `[String],[optional]` Name of the API that will be searched (Only found API will be returned)
