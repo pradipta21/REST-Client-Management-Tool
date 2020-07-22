@@ -95,7 +95,8 @@ import RESTClientManagementTool as RCMT
     - **Arguments**:
       - **api_name**: `[String],[optional]` Name of the API that will be searched (Only found API will be returned)
       - **filename**: `[String],[optional]` If filename is given then all the API in that file will be returned.
-      if both the arguments are set to null, then all the avialable APIs will be returned.The return type will be of json object
+      
+      If both the arguments are set to null, then all the avialable APIs will be returned.The return type will be of json object
   - **get_payload** : get_payload methods can be used to retrieve the payload of the API which requires the use of payload.
     - **Arguments**:
-      - - **api_name**: `[String],[required]` The payload of the given API will be returned. 
+      - **api_name**: `[String],[required]` The payload of the given API will be returned. 
