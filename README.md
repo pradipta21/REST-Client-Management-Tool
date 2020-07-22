@@ -77,3 +77,25 @@ import RESTClientManagementTool as RCMT
     - **payload**: `[dict],[optional]` If you want to add additional payload properties apart from the available one in the Payload json file. The dict object passed will be merged with the payload object from Payload json file.
     - **auth**: `[auth object],[optional]` If your API need some authentication, then you can pass the authentication object.
     - **filename**: `[String],[optional]` If you want to save the response returned by the API.The response will be stored as json format with the value passed as filename inside the `Result` directory. 
+ - **add_api** : add_api method can be used for adding APIs to any JSON file.If filename is not given then, it will add to a default file.
+   - **Arguments**:
+      - **name**: `[String],[required]` The name of the API which will be used for future reference.
+      - **endpoint**:  `[String],[required]` endpoint of the API url.
+      - **method**: `[String],[required]` Method of the API.
+      - **header**: `[dict],[required]` Header of the API.
+      - **payload**: `[dict/String],[required/optional]` Payload of the API if needed(POST/PUT). Payload can be either any json filename in the `Payload Directory` or in the form of a dictionary object for small payloads.
+      - **query_param**: `[dict],[optional]` If the API url supports query string, then this can be used.The value must passs as key/value pair.
+      - **SSL_verify**: `[String/boolean][optional]` If have have SSL certificate enter the path of the certificate else set it to false.
+      - **timeout**: `[String],[optional]` Request timeout value.
+      - **filename**: `[String],[optional]` Filename in which API should be added.If no filename is specififed then API will be added to `Default.json`
+  - **delete_api** : delete_api method can be used delete any API from any json file.
+    - **Arguments**:
+      - **api_name**: `[String],[required]` Name of the API that will be deleted.
+  - **search_api**: search_api method can be used for searching any API from the entire `API directory`
+    - **Arguments**:
+      - **api_name**: `[String],[optional]` Name of the API that will be searched (Only found API will be returned)
+      - **filename**: `[String],[optional]` If filename is given then all the API in that file will be returned.
+      if both the arguments are set to null, then all the avialable APIs will be returned.The return type will be of json object
+  - **get_payload** : get_payload methods can be used to retrieve the payload of the API which requires the use of payload.
+    - **Arguments**:
+      - - **api_name**: `[String],[required]` The payload of the given API will be returned. 
