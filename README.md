@@ -1,7 +1,7 @@
 # REST Client Management Tool
 This tool can be used for managing the REST APIs with different parameter and can be configured to exceute in multiple environment.All the APIs and its corresponding payload can be organized and exceuted seamlessly with the help of this tool. 
 This tools can be used for below scenarios - 
-1. Testing a large set of the APIs in different environment.
+1. Testing a large set of APIs in different environment.
 2. Create Automation using REST API.
 3. Quick look up of the API response during UI development.
 
