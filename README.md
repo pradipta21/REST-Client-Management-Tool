@@ -10,7 +10,7 @@ This tools can be used for below scenarios -
 2. Support multi-environment execution of APIs.
 3. Support runtime parameter for the APIs.
 4. Provide searching capabilities for the existing APIs.
-5. Handling the API operations promatically from the tool itself.
+5. Handling the API operations programatically from the tool itself.
 
 # Installation
 ## Clone
@@ -129,5 +129,5 @@ Adding payload can be quite simple.Create a json file which will contain the ent
 **Note** : For small payload, it can be directly added to the API json object while adding API to it.
 ## Logging
 In this tool, logs are divieded into two layer for better traking of the application.
-- System log : All logs related to system processing and configuring can be found here.
+- System log : All logs related to system processing and configuration can be found here.
 - Application log : All logs related to API execution can be found here.
