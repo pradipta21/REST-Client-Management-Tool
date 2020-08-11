@@ -16,11 +16,15 @@ class PayloadManager:
         self.system_logger = self.logger_object_system.get_system_logger()
     
     def check_payload(self,request_detail):
+        self.application_logger.info("Checking payload")
         if "payload" in request_detail.keys():
-            if isinstance(request_detail["payload"],dict):
-                request_detail["payload_type"] = "data"
+            if request_detail["payload"] != None:
+                if isinstance(request_detail["payload"],dict):
+                    request_detail["payload_type"] = "data"
+                else:
+                    request_detail["payload_type"] = "file"
             else:
-                request_detail["payload_type"] = "file"
+                request_detail["payload_type"] = "empty"
         else:
            request_detail["payload"] = None
            request_detail["payload_type"] = "empty"

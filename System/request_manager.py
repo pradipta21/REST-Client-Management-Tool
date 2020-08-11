@@ -36,6 +36,7 @@ class RequestManager:
             return None
         
     def header_assemble(self,request_details,header):
+        self.application_logger.info("Setting up the header")
         if isinstance(header,dict):
             header_key = header.keys()
             for key in header_key:
@@ -45,6 +46,8 @@ class RequestManager:
             raise RCMT_exception.argumentDataTypeError("Header argument must be of dict type")
             
     def payload_assembe(self,request_details,payload):
+        if request_details["payload_type"] == "empty":
+            request_details["payload"] = {}
         if isinstance(payload,dict):
             payload_key = payload.keys()
             for key in payload_key:
@@ -54,6 +57,8 @@ class RequestManager:
             raise RCMT_exception.argumentDataTypeError("Payload argument must be of dict type")
     
     def query_params_assembe(self,request_details,query_param):
+        self.application_logger.info("Setting up the query params for the URL")
+        request_details["query_params"] = {}
         if isinstance(query_param,dict):
             payload_key = query_param.keys()
             for key in payload_key:
@@ -63,6 +68,7 @@ class RequestManager:
             raise RCMT_exception.argumentDataTypeError("Query Params argument must be of dict type")
         
     def request_url_assemble(self,domain_details,request_details,request_name,url_params):
+        self.application_logger.info("Assembling the request URL")
         #Domain
         if domain_details["port"] != None:
             api_domain = domain_details["host"] + ":" + str(domain_details["port"])
@@ -119,11 +125,13 @@ class RequestManager:
                     verify=SSL_verify,
                     auth=auth
                 )
+            
             self.application_logger.info("*********   REQUEST INFORMATION   *********")
             self.application_logger.info("Request URL : " + str(response.url))
             self.application_logger.info("Method : " + str(method))
             self.application_logger.info("Header : \n" + json.dumps(headers, indent=4))
-            self.application_logger.info("Payload : \n" + json.dumps(payload, indent=4))
+            if payload != None:
+                self.application_logger.info("Payload : \n" + json.dumps(payload, indent=4))
             self.application_logger.info("Request Timout : " + str(timeout))
             self.application_logger.info("SSL Verification : " + str(SSL_verify))
             
