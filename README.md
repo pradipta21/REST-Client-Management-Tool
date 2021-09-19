@@ -71,7 +71,7 @@ import RESTClientManagementTool as RCMT
   - **Arguments**:
     - **domain_name**: `[String],[required]` The Domain you have setup in the configuration file (case-sensitive)
     - **request_name**: `[String],[required]` The name of the API you want to use (case-sensitive). The name must in be present in the API json file.
-    - **url_params**: `[dict],[optional]` If the API url have some paramerters, then value the pass as key/value pairs. key will the name of the variable and value should contains the actual value.
+    - **url_params**: `[dict],[optional]` If the API url have some paramerters, then pass the value as key/value pairs. key will the name of the variable and value should contains the actual value.
     - **query_param**: `[dict],[optional]` If the API url supports query string, then this can be used.The value must passs as key/value pair.
     - **header**: `[dict],[optional]` If you want to add additional header properties apart from the available one in the API json file. The dict object passed will be merged with the header object from API json file.
     - **payload**: `[dict],[optional]` If you want to add additional payload properties apart from the available one in the Payload json file. The dict object passed will be merged with the payload object from Payload json file.
